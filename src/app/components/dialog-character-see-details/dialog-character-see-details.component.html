@@ -1,0 +1,45 @@
+<p>
+  <mat-toolbar class="mat-elevation-z1">
+    <mat-toolbar-row>
+      <span>Detalles...</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+<mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-tile>
+    <img src="{{ data.character.image }}" />
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <form [formGroup]="formCharacter">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input readonly matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Origen</mat-label>
+        <input readonly matInput formControlName="origin" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Localización</mat-label>
+        <input readonly matInput formControlName="location" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Especie</mat-label>
+        <input readonly matInput formControlName="species" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <input readonly matInput formControlName="gender" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <input readonly matInput formControlName="status" />
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="onNoClick()">
+    Cerrar
+  </button>
+</div>

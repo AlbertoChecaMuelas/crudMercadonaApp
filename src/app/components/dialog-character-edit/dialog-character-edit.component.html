@@ -1,0 +1,69 @@
+<p>
+  <mat-toolbar class="mat-elevation-z1">
+    <mat-toolbar-row>
+      <span>Editando personaje...</span>
+    </mat-toolbar-row>
+  </mat-toolbar>
+</p>
+<mat-grid-list cols="2" rowHeight="350px">
+  <mat-grid-tile>
+    <img src="{{ data.character.image }}" />
+  </mat-grid-tile>
+  <mat-grid-tile>
+    <form [formGroup]="formCharacter">
+      <mat-form-field appearance="fill">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="name" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Origen</mat-label>
+        <input matInput formControlName="origin" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Localización</mat-label>
+        <input matInput formControlName="location" />
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Especie</mat-label>
+        <mat-select formControlName="species">
+          <mat-option
+            *ngFor="let specie of speciesCombo"
+            [value]="specie.description"
+          >
+            {{ specie.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Género</mat-label>
+        <mat-select formControlName="gender">
+          <mat-option
+            *ngFor="let gender of gendersCombo"
+            [value]="gender.description"
+          >
+            {{ gender.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Estado</mat-label>
+        <mat-select formControlName="status">
+          <mat-option
+            *ngFor="let status of statusesCombo"
+            [value]="status.description"
+          >
+            {{ status.description }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-grid-tile>
+</mat-grid-list>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="saveCharacter()">
+    Guardar
+  </button>
+  <button mat-raised-button color="primary" (click)="onNoClick()">
+    Cancelar
+  </button>
+</div>

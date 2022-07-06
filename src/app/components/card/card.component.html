@@ -1,0 +1,29 @@
+<div class="card my-3">
+  <img
+    src="{{ character.image }}"
+    class="card-img-top"
+    alt="{{ character.name }}"
+  />
+  <div class="card-body">
+    <span
+      class="btn btn-sm float-end"
+      [ngClass]="{
+        'btn-success': character.status === 'Alive',
+        'btn-danger': character.status === 'Dead',
+        'btn-warning':
+          character.status !== 'Dead' && character.status !== 'Alive'
+      }"
+    >
+      {{ character.status }}
+    </span>
+    <h5 class="card-title">{{ character.name }}</h5>
+    <p class="text-muted">&bull; Origen: {{ character.origin.name }}</p>
+    <p class="text-muted">&bull; Localización: {{ character.location.name }}</p>
+    <p class="text-muted">&bull; Especie: {{ character.species }}</p>
+    <p class="text-muted">&bull; Genero: {{ character.gender }}</p>
+    <div mat-dialog-actions>
+      <button mat-raised-button color="primary" (click)="editCard()">Editar</button>
+      <button mat-raised-button color="primary" (click)="seeCard()">Ver Detalles</button>
+    </div>
+  </div>
+</div>

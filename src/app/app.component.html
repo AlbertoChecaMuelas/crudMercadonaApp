@@ -1,0 +1,26 @@
+<div class="container my-5">
+  <div class="row">
+    <div class="col-sm">
+      <h1>Personajes Rick and Morty</h1>
+    </div>
+    <div class="col-sm-1">
+      <button mat-raised-button color="primary" (click)="createCharacter()">Crear Personaje</button>
+    </div>
+  </div>
+  <hr />
+  <input
+    type="text"
+    class="form-control"
+    placeholder="Escribe el personaje que quieras buscar..."
+    (input)="filter($event)"
+  />
+
+  <div class="row">
+    <div
+      *ngFor="let character of characters"
+      class="col-xl-4 col-sm-6 col-xs-12"
+    >
+      <app-card [character]="character"></app-card>
+    </div>
+  </div>
+</div>
